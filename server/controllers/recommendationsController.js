@@ -56,7 +56,6 @@ var generateQuery = function(item, callback) {
   callback(query);
 };
 
-
 var queryRecipes = function(query, diet, allergies, callback) {
   request(query, function(err, resp, body) {
     var allergyRestriction = {mostlikely: [], may: []};
@@ -104,7 +103,7 @@ var getUserRestrictionInfo = function(userID, callback) {
   User.where({id: userID}).fetchAll({withRelated: ['preferences']})
   .then(function(preferenceData){
     var data = preferenceData.toJSON()[0];
-    var diet = dietCodes[data.diet];
+    var diet = dietCodes[data.diet]|| 'none';
     var allergies = [];
 
     _.forEach(data.preferences, function(preference) {

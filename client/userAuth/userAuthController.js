@@ -33,7 +33,7 @@ angular
         Auth.signup($scope.user)
         .then(function(token) {
           $window.localStorage.setItem('authentication', token);
-          $state.go('profileView');
+          $state.go('surveyProfileView');
           Preferences.showTabDialog();
         })
         .catch(function(error) {

@@ -11,7 +11,7 @@ var Nutrition_Restriction = require('../db/models/Nutrition_Restriction.js');
 module.exports = {
 
   postPreferences: function(req, res) {
-    var userID = utils.getUserID(req.body.userID);
+    var userID = utils.getUserID(req.body.token);
     var userDiet = req.body.diet;
     var cuisines = req.body.cuisinePreference;
     var nutrients = req.body.nutritionPreference;
